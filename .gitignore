@@ -1,0 +1,15 @@
+# Secrets — never commit
+.env
+*.pem
+*.key
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Pipeline output (rendered cards)
+output/
+
+# OS
+.DS_Store
