@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Athena carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;1,400&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4EDDF; --ink: #24201A; --coral: #E4694A;
+    --columbia: #B9D9EB; --slate: #3F5169; --taupe: #8A7E70; --night: #14110D;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #777; }
+  .card {
+    width: 1080px; height: 1350px; background: var(--paper); color: var(--ink);
+    position: relative; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 120px 96px; overflow: hidden; margin: 24px auto;
+  }
+  .masthead {
+    position: absolute; top: 56px; left: 0; right: 0; text-align: center;
+    font-family: "Work Sans", sans-serif; font-weight: 500; font-size: 26px;
+    letter-spacing: .35em; color: var(--slate);
+  }
+  .masthead img { height: 56px; display: block; margin: 0 auto 8px; }
+  .handle {
+    position: absolute; bottom: 56px; left: 0; right: 0; text-align: center;
+    font-family: "Work Sans", sans-serif; font-size: 26px;
+    letter-spacing: .25em; color: var(--taupe);
+  }
+  .display { font-family: "Newsreader", serif; font-weight: 500; font-size: 76px; line-height: 1.15; }
+  .quote   { font-family: "Newsreader", serif; font-style: italic; font-size: 48px; line-height: 1.35; }
+  .subhead { font-family: "Work Sans", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.3; }
+  .body    { font-family: "Work Sans", sans-serif; font-size: 34px; line-height: 1.5; }
+  .label {
+    font-family: "Work Sans", sans-serif; font-weight: 600; font-size: 22px;
+    letter-spacing: .3em; text-transform: uppercase;
+  }
+  /* card 1 — cover: coral underline under the hook */
+  .cover .display::after {
+    content: ""; display: block; width: 180px; height: 6px;
+    background: var(--coral); margin: 48px auto 0;
+  }
+  /* cards 2 (calm) and 6 (calm on night) */
+  .calm-night { background: var(--night); color: var(--paper); }
+  .calm-night .masthead { color: var(--paper); }
+  .calm-night .handle { color: var(--taupe); }
+  /* card 3 — punchy: slate label bar above the statement */
+  .punchy .bar {
+    background: var(--slate); color: var(--paper); padding: 14px 36px;
+    margin-bottom: 56px;
+  }
+  /* card 4 — turn: coral eyebrow label */
+  .turn .eyebrow { color: var(--coral); margin-bottom: 48px; }
+  /* card 5 — insight: columbia highlight behind the text block */
+  .insight .highlight {
+    background: var(--columbia); padding: 40px 48px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  }
+  /* card 7 — CTA */
+  .cta .eyebrow { color: var(--slate); margin-bottom: 48px; }
+</style>
+</head>
+<body>
+
+<section class="card cover" data-card="1">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <h1 class="display">{{HOOK}}</h1>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card calm" data-card="2">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <p class="quote">{{CARD2}}</p>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card punchy" data-card="3">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <div><span class="label bar" style="display:inline-block;">THE STUDY</span>
+  <p class="subhead">{{CARD3}}</p></div>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card turn" data-card="4">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <div><div class="label eyebrow">THE TURN</div>
+  <p class="body">{{CARD4}}</p></div>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card insight" data-card="5">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <p class="body highlight">{{CARD5}}</p>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card calm-night" data-card="6">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <p class="quote">{{CARD6}}</p>
+  <div class="handle">@athena.reads</div>
+</section>
+
+<section class="card cta" data-card="7">
+  <div class="masthead"><img src="assets/owl.png" alt="" onerror="this.style.display='none'">ATHENA…</div>
+  <div><div class="label eyebrow">ONE USEFUL IDEA A WEEK</div>
+  <p class="subhead">{{CTA}}</p></div>
+  <div class="handle">@athena.reads</div>
+</section>
+
+</body>
+</html>

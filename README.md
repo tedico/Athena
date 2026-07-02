@@ -44,7 +44,10 @@ Three Claude Code skills, run in order:
 /athena-render <carousel>  # copy → output/<slug>/card-0{1..7}.png (Rendered)
 ```
 
-Then download the PNGs and post. (Skills land in Phase 2 — see SPRINT.md.)
+Then download the PNGs and post. The skills live in `.claude/skills/` (repo-local,
+available when Claude Code runs from the repo root); each one orchestrates a
+tested CLI (`src/add_papers.py`, `src/write_carousel.py`, `src/render.py`) that
+can also be run directly.
 
 ## How it works
 
