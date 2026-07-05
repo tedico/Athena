@@ -19,7 +19,8 @@ Full design: [docs/superpowers/specs/2026-07-01-athena-mvp-design.md](docs/super
 - **Char counts are hard code gates** — copy that exceeds a card's character
   band aborts the pipeline before any Notion write, no LLM-trust.
 - **Rendering is deterministic** — text poured into an HTML template and
-  screenshotted; no generative image models in the MVP.
+  screenshotted; the only generative step is the optional illustration engine
+  (`src/illustrate.py`), which never touches copy or layout.
 - **Posting is manual** — auto-posting to Instagram is iteration 2.
 
 ## Setup
@@ -49,6 +50,19 @@ available when Claude Code runs from the repo root); each one orchestrates a
 tested CLI (`src/add_papers.py`, `src/write_carousel.py`, `src/render.py`) that
 can also be run directly.
 
+**Illustrations** (pen-and-ink, transparent background, brand-Ink line work):
+
+```bash
+python -m src.illustrate "a moth drawn toward a candle flame" -o moth.png
+python -m src.illustrate --from-png raw.png -o clean.png  # transparency pass only
+```
+
+`src/illustrate.py` is Athena's own engine (cloned from Useful Math on
+2026-07-05, then adapted) — **engines are never shared across projects**. It
+wraps the brand prompt template around a subject, calls Gemini, then converts
+the white paper to alpha with the line work tinted Ink `#24201A`, so the PNG
+sits directly on the Paper card background.
+
 ## How it works
 
 Status-driven pipeline over two Notion databases:
@@ -64,8 +78,8 @@ card, one accent per card max).
 
 ## Configuration
 
-- `.env` — `NOTION_API_KEY` (see `.env.example`; secrets are never committed —
-  gitleaks pre-commit + GitHub push protection are active)
+- `.env` — `NOTION_API_KEY`, `GOOGLE_API_KEY` (see `.env.example`; secrets are
+  never committed — gitleaks pre-commit + GitHub push protection are active)
 - Notion database IDs — constants documented in `src/` once Phase 1 lands
 - `template/athena_cards.html` — the brand-book-exact card template
 

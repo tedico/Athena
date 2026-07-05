@@ -17,8 +17,16 @@ data handling, skill behavior), and we fix them one by one. Also verify the
 repo-local .claude/skills are discovered in a fresh claude session from the
 repo root (smoke test drove the CLIs directly).
 
+Landed 2026-07-05 (this PR): `src/illustrate.py` — Athena's own pen-and-ink
+illustration engine (Gemini gen + white→alpha transparency, brand-Ink line
+work). Cloned from Useful Math then adapted; engines are never shared across
+projects. Already used in production: all five Post #1 illustrations
+(Canva design DAHOe-NrMLE) are transparent and placed.
+
 ## Human
 - QC the 7 rendered cards (output/the-feeling-is-the-problem/) and merge the PR
+- Merge the athena-image-engine PR (illustration engine + rescued SPRINT commit)
+- QC Post #1 in Canva (design DAHOe-NrMLE), export the 7 cards, post to Instagram
 - Post the first carousel to Instagram; then flip its Notion statuses to Posted
 - Drop the owl logo at template/assets/owl.png (masthead auto-uses it; wordmark-only until then)
 - Export the "Athena Carousel" claude.ai design artifact as HTML into the repo
