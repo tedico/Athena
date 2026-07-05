@@ -127,7 +127,7 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 No code — this creates the two databases the code targets. Done by the executing
 Claude session with Notion MCP tools.
 
-- [ ] **Step 1: Create the Papers DB** on the "🦉 Athena (Beehiiv)" page (parent page id `3727934f-075d-80fb-8796-f17e468cac5d`) using `notion-create-database`:
+- [ ] **Step 1: Create the Papers DB** on the "🦉 Athena (Beehiiv)" page (parent page id `<page-id — see .env>`) using `notion-create-database`:
 
 - Title: `Papers`
 - Properties:
@@ -141,14 +141,14 @@ Claude session with Notion MCP tools.
   - `Selection Reason` — rich_text
   - `Status` — select, options exactly: `Discovered`, `Selected`, `Written`, `Rendered`, `Posted`, `Rejected`
 
-- [ ] **Step 2: Extend the Carousel DB** (the unnamed database, data source `collection://38c7934f-075d-8067-9d29-000b3f358b9c`) via `notion-update-data-source`, adding:
+- [ ] **Step 2: Extend the Carousel DB** (the unnamed database, data source `collection://<data-source-id — see .env>`) via `notion-update-data-source`, adding:
 
 - `Status` — select, options exactly: `Draft`, `Approved`, `Rendered`, `Posted`
 - `Paper` — relation → the Papers DB from Step 1
 
 Also rename the data source from "New database" to `Carousels`.
 
-- [ ] **Step 3: Record the DATABASE ids in `.env`** (not committed). Get each database's page URL (`notion-fetch` on the database returns `url": "https://app.notion.com/p/<32-hex>"`); the 32-hex is the database id. Carousel DB id is `38c7934f075d803c9415efbdba74ee15`. Write both into `.env` as `NOTION_PAPERS_DB_ID` / `NOTION_CAROUSEL_DB_ID` along with Ted's `NOTION_API_KEY`.
+- [ ] **Step 3: Record the DATABASE ids in `.env`** (not committed). Get each database's page URL (`notion-fetch` on the database returns `url": "https://app.notion.com/p/<32-hex>"`); the 32-hex is the database id. Carousel DB id is `<32-hex — see .env>`. Write both into `.env` as `NOTION_PAPERS_DB_ID` / `NOTION_CAROUSEL_DB_ID` along with Ted's `NOTION_API_KEY`.
 
 - [ ] **Step 4: Verify REST access.** Run (venv active, after Task 2 lands config.py — or use a one-liner):
 
