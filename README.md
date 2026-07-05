@@ -2,14 +2,29 @@
 
 ## What & why
 
-Athena is a content engine for a calm, literary brand about how the mind works.
-This repo is the MVP slice: **one psychology paper → one Instagram/TikTok
-carousel** — search academic literature (via the Consensus MCP), whittle papers
-in a Notion funnel, write 7-card copy, and render seven finished 1080×1350 PNGs
-from a brand-book-exact HTML template. The long-term system (three-book trios,
-Beehiiv newsletter, auto-posting) grows from this seed.
+**Why this exists:** Athena is Ted's calm, literary brand about how the mind
+works — a newsletter built on books. Its signature product: **3 books → 1
+theme → 1 useful synthesized idea**, shipped as a 7-card Instagram carousel
+(and eventually a Beehiiv newsletter). Athena synthesizes books; it never
+summarizes them.
 
-Full design: [docs/superpowers/specs/2026-07-01-athena-mvp-design.md](docs/superpowers/specs/2026-07-01-athena-mvp-design.md)
+**What it solves:** turns the Notion pipeline — Book List (authority
+sources) → Books → Issues (trio + theme + idea) → Carousels — into finished,
+brand-book-exact 1080×1350 cards, with pen-and-ink illustrations from this
+repo's own engine.
+
+**Where it fits:** Athena is book-anchored, always 7 cards, always static
+"paper" output — never video. Research papers are NOT an Athena lane
+anymore (decided 2026-07-05): the paper→carousel code in this repo
+(`add_papers`, `write_carousel`, the `/athena-*` skills) is the **parked
+probe** that proved the Consensus supply line works. That supply line now
+lives in [Alexandria](https://github.com/tedico/alexandria) (the shared
+paper shelf), and paper-based video content ships via
+[super-psychology](https://github.com/tedico/super-psychology). If a
+psychology-carousel branch ever becomes real, it clones the parked code into
+its own repo — engines are never shared.
+
+Original MVP design (historical): [docs/superpowers/specs/2026-07-01-athena-mvp-design.md](docs/superpowers/specs/2026-07-01-athena-mvp-design.md)
 
 ## Constraints
 
