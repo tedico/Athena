@@ -13,3 +13,6 @@ output/
 
 # OS
 .DS_Store
+
+# Local-only archive moved from ~ during the 2026-07-14 root cleanup — private notes/backups, never commit
+Athena_moved_from_root/
